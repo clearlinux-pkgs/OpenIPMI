@@ -1708,6 +1708,7 @@ libOpenIPMI.so.0:ipmi_sol_deregister_connection_state_callback
 libOpenIPMI.so.0:ipmi_sol_deregister_data_received_callback
 libOpenIPMI.so.0:ipmi_sol_flush
 libOpenIPMI.so.0:ipmi_sol_force_close
+libOpenIPMI.so.0:ipmi_sol_force_close_wsend
 libOpenIPMI.so.0:ipmi_sol_free
 libOpenIPMI.so.0:ipmi_sol_free_config
 libOpenIPMI.so.0:ipmi_sol_get_ACK_retries
