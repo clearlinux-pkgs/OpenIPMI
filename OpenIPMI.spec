@@ -4,7 +4,7 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.27
-Release  : 3
+Release  : 4
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.27.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.27.tar.gz
 Summary  : Full-function IPMI (Intelligent Platform Management Interface) system
@@ -105,13 +105,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552261100
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export SOURCE_DATE_EPOCH=1555800710
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1552261100
+export SOURCE_DATE_EPOCH=1555800710
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/OpenIPMI
 cp COPYING %{buildroot}/usr/share/package-licenses/OpenIPMI/COPYING
@@ -121,7 +120,7 @@ cp COPYING.LIB %{buildroot}/usr/share/package-licenses/OpenIPMI/COPYING.LIB
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/x86_64-linux-thread-multi/OpenIPMI.pm
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/OpenIPMI.pm
 
 %files bin
 %defattr(-,root,root,-)
@@ -212,7 +211,7 @@ cp COPYING.LIB %{buildroot}/usr/share/package-licenses/OpenIPMI/COPYING.LIB
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
+/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
 /usr/lib64/libIPMIlanserv.so.0
 /usr/lib64/libIPMIlanserv.so.0.0.1
 /usr/lib64/libOpenIPMI.so.0
