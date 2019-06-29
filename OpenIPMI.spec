@@ -4,10 +4,10 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.27
-Release  : 4
+Release  : 5
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.27.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.27.tar.gz
-Summary  : Full-function IPMI (Intelligent Platform Management Interface) system
+Summary  : %{name} - Library interface to IPMI
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
 Requires: OpenIPMI-bin = %{version}-%{release}
@@ -27,10 +27,8 @@ BuildRequires : tcl
 BuildRequires : texlive
 
 %description
-This is the OpenIPMI command language, which allows each access to
-pretty much everything about OpenIPMI.  It can be used to add an
-OpenIPMI command shell into an application to give the user full
-access into everything OpenIPMI can do.
+This is the OpenIPMI library, a library that makes simplifies building
+complex IPMI management software.
 
 %package bin
 Summary: bin components for the OpenIPMI package.
@@ -105,12 +103,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555800710
+export SOURCE_DATE_EPOCH=1561766729
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1555800710
+export SOURCE_DATE_EPOCH=1561766729
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/OpenIPMI
 cp COPYING %{buildroot}/usr/share/package-licenses/OpenIPMI/COPYING
@@ -120,7 +123,7 @@ cp COPYING.LIB %{buildroot}/usr/share/package-licenses/OpenIPMI/COPYING.LIB
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/OpenIPMI.pm
+/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/OpenIPMI.pm
 
 %files bin
 %defattr(-,root,root,-)
@@ -211,7 +214,7 @@ cp COPYING.LIB %{buildroot}/usr/share/package-licenses/OpenIPMI/COPYING.LIB
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/5.28.2/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
+/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
 /usr/lib64/libIPMIlanserv.so.0
 /usr/lib64/libIPMIlanserv.so.0.0.1
 /usr/lib64/libOpenIPMI.so.0
