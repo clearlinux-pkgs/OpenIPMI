@@ -4,7 +4,7 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.27
-Release  : 7
+Release  : 8
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.27.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.27.tar.gz
 Summary  : %{name} - Library interface to IPMI
@@ -18,6 +18,7 @@ Requires: OpenIPMI-python = %{version}-%{release}
 Requires: OpenIPMI-python3 = %{version}-%{release}
 BuildRequires : gdbm-dev
 BuildRequires : ncurses-dev
+BuildRequires : perl(Config)
 BuildRequires : pkgconfig(libedit)
 BuildRequires : popt-dev
 BuildRequires : python3-dev
@@ -102,8 +103,8 @@ python3 components for the OpenIPMI package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1561766729
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1571337837
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -113,12 +114,12 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1561766729
+export SOURCE_DATE_EPOCH=1571337837
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/OpenIPMI
-cp COPYING %{buildroot}/usr/share/package-licenses/OpenIPMI/COPYING
-cp COPYING.BSD %{buildroot}/usr/share/package-licenses/OpenIPMI/COPYING.BSD
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/OpenIPMI/COPYING.LIB
+cp %{_builddir}/OpenIPMI-2.0.27/COPYING %{buildroot}/usr/share/package-licenses/OpenIPMI/dfac199a7539a404407098a2541b9482279f690d
+cp %{_builddir}/OpenIPMI-2.0.27/COPYING.BSD %{buildroot}/usr/share/package-licenses/OpenIPMI/6041dfa4b268e7399d2c7e18c644cb291982028a
+cp %{_builddir}/OpenIPMI-2.0.27/COPYING.LIB %{buildroot}/usr/share/package-licenses/OpenIPMI/cf756914ec51f52f9c121be247bfda232dc6afd2
 %make_install
 
 %files
@@ -232,9 +233,9 @@ cp COPYING.LIB %{buildroot}/usr/share/package-licenses/OpenIPMI/COPYING.LIB
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/OpenIPMI/COPYING
-/usr/share/package-licenses/OpenIPMI/COPYING.BSD
-/usr/share/package-licenses/OpenIPMI/COPYING.LIB
+/usr/share/package-licenses/OpenIPMI/6041dfa4b268e7399d2c7e18c644cb291982028a
+/usr/share/package-licenses/OpenIPMI/cf756914ec51f52f9c121be247bfda232dc6afd2
+/usr/share/package-licenses/OpenIPMI/dfac199a7539a404407098a2541b9482279f690d
 
 %files man
 %defattr(0644,root,root,0755)

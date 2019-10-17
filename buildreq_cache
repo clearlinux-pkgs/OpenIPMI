@@ -1,6 +1,7 @@
 2.0.27
 gdbm-dev
 ncurses-dev
+perl(Config)
 popt-dev
 readline-dev
 swig
