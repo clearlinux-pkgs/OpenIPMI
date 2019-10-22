@@ -4,13 +4,14 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.27
-Release  : 8
+Release  : 9
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.27.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.27.tar.gz
 Summary  : %{name} - Library interface to IPMI
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
 Requires: OpenIPMI-bin = %{version}-%{release}
+Requires: OpenIPMI-data = %{version}-%{release}
 Requires: OpenIPMI-lib = %{version}-%{release}
 Requires: OpenIPMI-license = %{version}-%{release}
 Requires: OpenIPMI-man = %{version}-%{release}
@@ -26,6 +27,7 @@ BuildRequires : readline-dev
 BuildRequires : swig
 BuildRequires : tcl
 BuildRequires : texlive
+BuildRequires : util-linux
 
 %description
 This is the OpenIPMI library, a library that makes simplifies building
@@ -34,10 +36,19 @@ complex IPMI management software.
 %package bin
 Summary: bin components for the OpenIPMI package.
 Group: Binaries
+Requires: OpenIPMI-data = %{version}-%{release}
 Requires: OpenIPMI-license = %{version}-%{release}
 
 %description bin
 bin components for the OpenIPMI package.
+
+
+%package data
+Summary: data components for the OpenIPMI package.
+Group: Data
+
+%description data
+data components for the OpenIPMI package.
 
 
 %package dev
@@ -45,6 +56,7 @@ Summary: dev components for the OpenIPMI package.
 Group: Development
 Requires: OpenIPMI-lib = %{version}-%{release}
 Requires: OpenIPMI-bin = %{version}-%{release}
+Requires: OpenIPMI-data = %{version}-%{release}
 Provides: OpenIPMI-devel = %{version}-%{release}
 Requires: OpenIPMI = %{version}-%{release}
 
@@ -55,6 +67,7 @@ dev components for the OpenIPMI package.
 %package lib
 Summary: lib components for the OpenIPMI package.
 Group: Libraries
+Requires: OpenIPMI-data = %{version}-%{release}
 Requires: OpenIPMI-license = %{version}-%{release}
 
 %description lib
@@ -104,17 +117,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571337837
+export SOURCE_DATE_EPOCH=1571724944
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
 export FFLAGS="$CFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
-%configure --disable-static
+%configure --disable-static --with-perlinstall=$(eval $(perl -V:installvendorarch); echo $installvendorarch)
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1571337837
+export SOURCE_DATE_EPOCH=1571724944
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/OpenIPMI
 cp %{_builddir}/OpenIPMI-2.0.27/COPYING %{buildroot}/usr/share/package-licenses/OpenIPMI/dfac199a7539a404407098a2541b9482279f690d
@@ -124,7 +137,6 @@ cp %{_builddir}/OpenIPMI-2.0.27/COPYING.LIB %{buildroot}/usr/share/package-licen
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/OpenIPMI.pm
 
 %files bin
 %defattr(-,root,root,-)
@@ -139,6 +151,11 @@ cp %{_builddir}/OpenIPMI-2.0.27/COPYING.LIB %{buildroot}/usr/share/package-licen
 /usr/bin/rmcp_ping
 /usr/bin/sdrcomp
 /usr/bin/solterm
+
+%files data
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/OpenIPMI.pm
+/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
 
 %files dev
 %defattr(-,root,root,-)
@@ -215,7 +232,6 @@ cp %{_builddir}/OpenIPMI-2.0.27/COPYING.LIB %{buildroot}/usr/share/package-licen
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
 /usr/lib64/libIPMIlanserv.so.0
 /usr/lib64/libIPMIlanserv.so.0.0.1
 /usr/lib64/libOpenIPMI.so.0

@@ -1,0 +1,1 @@
+--with-perlinstall=$(eval $(perl -V:installvendorarch); echo $installvendorarch)
