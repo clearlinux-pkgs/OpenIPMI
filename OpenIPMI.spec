@@ -4,17 +4,17 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.27
-Release  : 9
+Release  : 10
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.27.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.27.tar.gz
 Summary  : %{name} - Library interface to IPMI
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
 Requires: OpenIPMI-bin = %{version}-%{release}
-Requires: OpenIPMI-data = %{version}-%{release}
 Requires: OpenIPMI-lib = %{version}-%{release}
 Requires: OpenIPMI-license = %{version}-%{release}
 Requires: OpenIPMI-man = %{version}-%{release}
+Requires: OpenIPMI-perl = %{version}-%{release}
 Requires: OpenIPMI-python = %{version}-%{release}
 Requires: OpenIPMI-python3 = %{version}-%{release}
 BuildRequires : gdbm-dev
@@ -36,19 +36,10 @@ complex IPMI management software.
 %package bin
 Summary: bin components for the OpenIPMI package.
 Group: Binaries
-Requires: OpenIPMI-data = %{version}-%{release}
 Requires: OpenIPMI-license = %{version}-%{release}
 
 %description bin
 bin components for the OpenIPMI package.
-
-
-%package data
-Summary: data components for the OpenIPMI package.
-Group: Data
-
-%description data
-data components for the OpenIPMI package.
 
 
 %package dev
@@ -56,7 +47,6 @@ Summary: dev components for the OpenIPMI package.
 Group: Development
 Requires: OpenIPMI-lib = %{version}-%{release}
 Requires: OpenIPMI-bin = %{version}-%{release}
-Requires: OpenIPMI-data = %{version}-%{release}
 Provides: OpenIPMI-devel = %{version}-%{release}
 Requires: OpenIPMI = %{version}-%{release}
 
@@ -67,7 +57,6 @@ dev components for the OpenIPMI package.
 %package lib
 Summary: lib components for the OpenIPMI package.
 Group: Libraries
-Requires: OpenIPMI-data = %{version}-%{release}
 Requires: OpenIPMI-license = %{version}-%{release}
 
 %description lib
@@ -88,6 +77,15 @@ Group: Default
 
 %description man
 man components for the OpenIPMI package.
+
+
+%package perl
+Summary: perl components for the OpenIPMI package.
+Group: Default
+Requires: OpenIPMI = %{version}-%{release}
+
+%description perl
+perl components for the OpenIPMI package.
 
 
 %package python
@@ -111,13 +109,14 @@ python3 components for the OpenIPMI package.
 
 %prep
 %setup -q -n OpenIPMI-2.0.27
+cd %{_builddir}/OpenIPMI-2.0.27
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571724944
+export SOURCE_DATE_EPOCH=1574201707
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -127,7 +126,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1571724944
+export SOURCE_DATE_EPOCH=1574201707
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/OpenIPMI
 cp %{_builddir}/OpenIPMI-2.0.27/COPYING %{buildroot}/usr/share/package-licenses/OpenIPMI/dfac199a7539a404407098a2541b9482279f690d
@@ -151,11 +150,6 @@ cp %{_builddir}/OpenIPMI-2.0.27/COPYING.LIB %{buildroot}/usr/share/package-licen
 /usr/bin/rmcp_ping
 /usr/bin/sdrcomp
 /usr/bin/solterm
-
-%files data
-%defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/OpenIPMI.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
 
 %files dev
 %defattr(-,root,root,-)
@@ -268,6 +262,11 @@ cp %{_builddir}/OpenIPMI-2.0.27/COPYING.LIB %{buildroot}/usr/share/package-licen
 /usr/share/man/man7/ipmi_cmdlang.7
 /usr/share/man/man7/openipmi_conparms.7
 /usr/share/man/man8/ipmilan.8
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/OpenIPMI.pm
+/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
 
 %files python
 %defattr(-,root,root,-)
