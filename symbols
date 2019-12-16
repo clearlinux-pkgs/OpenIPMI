@@ -25,6 +25,9 @@ libIPMIlanserv.so.0:get_uint
 libIPMIlanserv.so.0:handle_asf
 libIPMIlanserv.so.0:init_oem_force
 libIPMIlanserv.so.0:ipmb_checksum
+libIPMIlanserv.so.0:ipmbserv_handle_data
+libIPMIlanserv.so.0:ipmbserv_init
+libIPMIlanserv.so.0:ipmbserv_read_config
 libIPMIlanserv.so.0:ipmi_cmd_permitted
 libIPMIlanserv.so.0:ipmi_get_uint16
 libIPMIlanserv.so.0:ipmi_get_uint32
