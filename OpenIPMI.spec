@@ -4,10 +4,10 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.28
-Release  : 13
+Release  : 14
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.28.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.28.tar.gz
-Summary  : Full-function IPMI (Intelligent Platform Management Interface) system
+Summary  : %{name} - Library interface to IPMI
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
 Requires: OpenIPMI-bin = %{version}-%{release}
@@ -19,6 +19,7 @@ Requires: OpenIPMI-python = %{version}-%{release}
 Requires: OpenIPMI-python3 = %{version}-%{release}
 BuildRequires : gdbm-dev
 BuildRequires : ncurses-dev
+BuildRequires : perl(Config)
 BuildRequires : pkgconfig(libedit)
 BuildRequires : popt-dev
 BuildRequires : python3-dev
@@ -26,12 +27,11 @@ BuildRequires : readline-dev
 BuildRequires : swig
 BuildRequires : tcl
 BuildRequires : texlive
+BuildRequires : util-linux
 
 %description
-This is the OpenIPMI command language, which allows each access to
-pretty much everything about OpenIPMI.  It can be used to add an
-OpenIPMI command shell into an application to give the user full
-access into everything OpenIPMI can do.
+This is the OpenIPMI library, a library that makes simplifies building
+complex IPMI management software.
 
 %package bin
 Summary: bin components for the OpenIPMI package.
@@ -48,7 +48,6 @@ Group: Development
 Requires: OpenIPMI-lib = %{version}-%{release}
 Requires: OpenIPMI-bin = %{version}-%{release}
 Provides: OpenIPMI-devel = %{version}-%{release}
-Requires: OpenIPMI = %{version}-%{release}
 Requires: OpenIPMI = %{version}-%{release}
 
 %description dev
@@ -117,8 +116,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576523393
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1578429268
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -128,7 +126,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1576523393
+export SOURCE_DATE_EPOCH=1578429268
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/OpenIPMI
 cp %{_builddir}/OpenIPMI-2.0.28/COPYING %{buildroot}/usr/share/package-licenses/OpenIPMI/dfac199a7539a404407098a2541b9482279f690d
@@ -268,8 +266,8 @@ cp %{_builddir}/OpenIPMI-2.0.28/COPYING.LIB %{buildroot}/usr/share/package-licen
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/OpenIPMI.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/OpenIPMI.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
 
 %files python
 %defattr(-,root,root,-)
