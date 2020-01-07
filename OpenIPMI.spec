@@ -4,7 +4,7 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.28
-Release  : 12
+Release  : 13
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.28.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.28.tar.gz
 Summary  : Full-function IPMI (Intelligent Platform Management Interface) system
