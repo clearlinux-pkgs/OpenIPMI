@@ -4,10 +4,10 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.28
-Release  : 14
+Release  : 15
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.28.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.28.tar.gz
-Summary  : %{name} - Library interface to IPMI
+Summary  : Full-function IPMI (Intelligent Platform Management Interface) system
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
 Requires: OpenIPMI-bin = %{version}-%{release}
@@ -30,8 +30,10 @@ BuildRequires : texlive
 BuildRequires : util-linux
 
 %description
-This is the OpenIPMI library, a library that makes simplifies building
-complex IPMI management software.
+This is the OpenIPMI command language, which allows each access to
+pretty much everything about OpenIPMI.  It can be used to add an
+OpenIPMI command shell into an application to give the user full
+access into everything OpenIPMI can do.
 
 %package bin
 Summary: bin components for the OpenIPMI package.
@@ -48,6 +50,7 @@ Group: Development
 Requires: OpenIPMI-lib = %{version}-%{release}
 Requires: OpenIPMI-bin = %{version}-%{release}
 Provides: OpenIPMI-devel = %{version}-%{release}
+Requires: OpenIPMI = %{version}-%{release}
 Requires: OpenIPMI = %{version}-%{release}
 
 %description dev
@@ -116,7 +119,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578429268
+export SOURCE_DATE_EPOCH=1583192563
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -126,7 +130,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1578429268
+export SOURCE_DATE_EPOCH=1583192563
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/OpenIPMI
 cp %{_builddir}/OpenIPMI-2.0.28/COPYING %{buildroot}/usr/share/package-licenses/OpenIPMI/dfac199a7539a404407098a2541b9482279f690d
