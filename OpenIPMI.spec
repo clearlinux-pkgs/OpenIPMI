@@ -4,7 +4,7 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.28
-Release  : 16
+Release  : 17
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.28.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.28.tar.gz
 Summary  : %{name} - Library interface to IPMI
@@ -116,17 +116,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1584401835
+export SOURCE_DATE_EPOCH=1591141276
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static --with-perlinstall=$(eval $(perl -V:installvendorarch); echo $installvendorarch)
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1584401835
+export SOURCE_DATE_EPOCH=1591141276
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/OpenIPMI
 cp %{_builddir}/OpenIPMI-2.0.28/COPYING %{buildroot}/usr/share/package-licenses/OpenIPMI/dfac199a7539a404407098a2541b9482279f690d
@@ -266,8 +266,8 @@ cp %{_builddir}/OpenIPMI-2.0.28/COPYING.LIB %{buildroot}/usr/share/package-licen
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/OpenIPMI.pm
-/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
+/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/OpenIPMI.pm
+/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
 
 %files python
 %defattr(-,root,root,-)
