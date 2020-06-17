@@ -1,10 +1,8 @@
-2.0.28
+2.0.29
 gdbm-dev
 ncurses-dev
-perl(Config)
 popt-dev
 readline-dev
 swig
 tcl
 texlive
-util-linux

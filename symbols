@@ -1955,11 +1955,13 @@ libOpenIPMIposix.so.0:sel_get_monotonic_time
 libOpenIPMIposix.so.0:sel_run
 libOpenIPMIposix.so.0:sel_select
 libOpenIPMIposix.so.0:sel_select_intr
+libOpenIPMIposix.so.0:sel_select_intr_sigmask
 libOpenIPMIposix.so.0:sel_select_loop
 libOpenIPMIposix.so.0:sel_set_fd_except_handler
 libOpenIPMIposix.so.0:sel_set_fd_handlers
 libOpenIPMIposix.so.0:sel_set_fd_read_handler
 libOpenIPMIposix.so.0:sel_set_fd_write_handler
+libOpenIPMIposix.so.0:sel_setup_forked_process
 libOpenIPMIposix.so.0:sel_start_timer
 libOpenIPMIposix.so.0:sel_stop_timer
 libOpenIPMIposix.so.0:sel_stop_timer_with_done
@@ -1987,11 +1989,13 @@ libOpenIPMIpthread.so.0:sel_get_monotonic_time
 libOpenIPMIpthread.so.0:sel_run
 libOpenIPMIpthread.so.0:sel_select
 libOpenIPMIpthread.so.0:sel_select_intr
+libOpenIPMIpthread.so.0:sel_select_intr_sigmask
 libOpenIPMIpthread.so.0:sel_select_loop
 libOpenIPMIpthread.so.0:sel_set_fd_except_handler
 libOpenIPMIpthread.so.0:sel_set_fd_handlers
 libOpenIPMIpthread.so.0:sel_set_fd_read_handler
 libOpenIPMIpthread.so.0:sel_set_fd_write_handler
+libOpenIPMIpthread.so.0:sel_setup_forked_process
 libOpenIPMIpthread.so.0:sel_start_timer
 libOpenIPMIpthread.so.0:sel_stop_timer
 libOpenIPMIpthread.so.0:sel_stop_timer_with_done
