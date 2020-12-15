@@ -4,7 +4,7 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.30
-Release  : 23
+Release  : 24
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.30.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.30.tar.gz
 Summary  : %{name} - Library interface to IPMI
