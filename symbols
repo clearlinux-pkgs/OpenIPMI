@@ -1891,6 +1891,7 @@ libOpenIPMIcmdlang.so.0:ipmi_cmdlang_get_time
 libOpenIPMIcmdlang.so.0:ipmi_cmdlang_get_timeout
 libOpenIPMIcmdlang.so.0:ipmi_cmdlang_get_uchar
 libOpenIPMIcmdlang.so.0:ipmi_cmdlang_get_user
+libOpenIPMIcmdlang.so.0:ipmi_cmdlang_global_err
 libOpenIPMIcmdlang.so.0:ipmi_cmdlang_handle
 libOpenIPMIcmdlang.so.0:ipmi_cmdlang_init
 libOpenIPMIcmdlang.so.0:ipmi_cmdlang_lanparm_handler
