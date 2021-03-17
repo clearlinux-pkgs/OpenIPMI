@@ -4,7 +4,7 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.31
-Release  : 26
+Release  : 27
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.31.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.31.tar.gz
 Summary  : %{name} - Library interface to IPMI
@@ -114,7 +114,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1611427057
+export SOURCE_DATE_EPOCH=1616014869
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -124,7 +124,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1611427057
+export SOURCE_DATE_EPOCH=1616014869
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/OpenIPMI
 cp %{_builddir}/OpenIPMI-2.0.31/COPYING %{buildroot}/usr/share/package-licenses/OpenIPMI/dfac199a7539a404407098a2541b9482279f690d
@@ -267,8 +267,8 @@ cp %{_builddir}/OpenIPMI-2.0.31/COPYING.LIB %{buildroot}/usr/share/package-licen
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/OpenIPMI.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/OpenIPMI.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
 
 %files python
 %defattr(-,root,root,-)
