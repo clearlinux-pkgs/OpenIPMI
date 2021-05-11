@@ -1,24 +1,24 @@
-Configure miss: sys/ethernet.h usability
-Configure miss: sys/ethernet.h presence
-Configure miss: sys/ethernet.h
-Configure miss: glib
-Configure miss: tcl/tcl.h usability
-Configure miss: tcl/tcl.h presence
-Configure miss: tcl/tcl.h
-Configure miss: tcl
-Configure miss: net-snmp/net-snmp-config.h usability
-Configure miss: net-snmp/net-snmp-config.h presence
-Configure miss: net-snmp/net-snmp-config.h
-Configure miss: snmp_api.h usability
-Configure miss: snmp_api.h presence
-Configure miss: snmp_api.h
-Configure miss: ucd-snmp/snmp_api.h usability
-Configure miss: ucd-snmp/snmp_api.h presence
-Configure miss: ucd-snmp/snmp_api.h
-Configure miss: openssl/crypto.h usability
-Configure miss: openssl/crypto.h presence
-Configure miss: openssl/crypto.h
 Configure miss: bind in -lsocket
-Configure miss: getaddrinfo in -lsocket
 Configure miss: dia
 Configure miss: dvipdf
+Configure miss: getaddrinfo in -lsocket
+Configure miss: glib
+Configure miss: net-snmp/net-snmp-config.h
+Configure miss: net-snmp/net-snmp-config.h presence
+Configure miss: net-snmp/net-snmp-config.h usability
+Configure miss: openssl/crypto.h
+Configure miss: openssl/crypto.h presence
+Configure miss: openssl/crypto.h usability
+Configure miss: snmp_api.h
+Configure miss: snmp_api.h presence
+Configure miss: snmp_api.h usability
+Configure miss: sys/ethernet.h
+Configure miss: sys/ethernet.h presence
+Configure miss: sys/ethernet.h usability
+Configure miss: tcl
+Configure miss: tcl/tcl.h
+Configure miss: tcl/tcl.h presence
+Configure miss: tcl/tcl.h usability
+Configure miss: ucd-snmp/snmp_api.h
+Configure miss: ucd-snmp/snmp_api.h presence
+Configure miss: ucd-snmp/snmp_api.h usability

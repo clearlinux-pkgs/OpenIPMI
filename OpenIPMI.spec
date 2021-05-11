@@ -4,7 +4,7 @@
 #
 Name     : OpenIPMI
 Version  : 2.0.31
-Release  : 29
+Release  : 30
 URL      : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.31.tar.gz
 Source0  : https://sourceforge.net/projects/openipmi/files/OpenIPMI%202.0%20Library/OpenIPMI-2.0.31.tar.gz
 Summary  : %{name} - Library interface to IPMI
@@ -14,7 +14,6 @@ Requires: OpenIPMI-bin = %{version}-%{release}
 Requires: OpenIPMI-lib = %{version}-%{release}
 Requires: OpenIPMI-license = %{version}-%{release}
 Requires: OpenIPMI-man = %{version}-%{release}
-Requires: OpenIPMI-perl = %{version}-%{release}
 Requires: OpenIPMI-python = %{version}-%{release}
 Requires: OpenIPMI-python3 = %{version}-%{release}
 BuildRequires : gdbm-dev
@@ -77,15 +76,6 @@ Group: Default
 man components for the OpenIPMI package.
 
 
-%package perl
-Summary: perl components for the OpenIPMI package.
-Group: Default
-Requires: OpenIPMI = %{version}-%{release}
-
-%description perl
-perl components for the OpenIPMI package.
-
-
 %package python
 Summary: python components for the OpenIPMI package.
 Group: Default
@@ -114,17 +104,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1616014869
+export SOURCE_DATE_EPOCH=1620709889
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
 export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
-%configure --disable-static --with-perlinstall=$(eval $(perl -V:installvendorarch); echo $installvendorarch)
+%configure --disable-static --with-perl=no
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1616014869
+export SOURCE_DATE_EPOCH=1620709889
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/OpenIPMI
 cp %{_builddir}/OpenIPMI-2.0.31/COPYING %{buildroot}/usr/share/package-licenses/OpenIPMI/dfac199a7539a404407098a2541b9482279f690d
@@ -264,11 +254,6 @@ cp %{_builddir}/OpenIPMI-2.0.31/COPYING.LIB %{buildroot}/usr/share/package-licen
 /usr/share/man/man7/ipmi_cmdlang.7
 /usr/share/man/man7/openipmi_conparms.7
 /usr/share/man/man8/ipmilan.8
-
-%files perl
-%defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/OpenIPMI.pm
-/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/auto/OpenIPMI/OpenIPMI.so
 
 %files python
 %defattr(-,root,root,-)
