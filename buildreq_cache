@@ -1,5 +1,6 @@
 2.0.34
 gdbm-dev
+perl(Getopt::Long)
 popt-dev
 readline-dev
 swig
