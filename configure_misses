@@ -1,14 +1,28 @@
 Configure miss: bind in -lsocket
+Configure miss: bind in -lsocket
+Configure miss: dia
 Configure miss: dia
 Configure miss: dvipdf
+Configure miss: dvipdf
+Configure miss: getaddrinfo in -lsocket
 Configure miss: getaddrinfo in -lsocket
 Configure miss: glib
+Configure miss: glib
+Configure miss: net-snmp/net-snmp-config.h
 Configure miss: net-snmp/net-snmp-config.h
 Configure miss: openssl/crypto.h
+Configure miss: openssl/crypto.h
+Configure miss: snmp_api.h
 Configure miss: snmp_api.h
 Configure miss: sys/ethernet.h
+Configure miss: sys/ethernet.h
+Configure miss: tcl
 Configure miss: tcl
 Configure miss: tcl/tcl.h
+Configure miss: tcl/tcl.h
+Configure miss: tkinter
 Configure miss: tkinter
 Configure miss: ucd-snmp/snmp_api.h
+Configure miss: ucd-snmp/snmp_api.h
+Configure miss: x86_64-generic-linux-gnu-file
 Configure miss: x86_64-generic-linux-gnu-file
