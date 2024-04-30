@@ -1,6 +1,6 @@
-2.0.34
+2.0.35
+file
 gdbm-dev
-perl(Getopt::Long)
 popt-dev
 readline-dev
 swig

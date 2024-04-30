@@ -1,0 +1,5 @@
+/etc/:
+/etc/ipmi:
+ipmi
+ipmisim1.emu
+lan.conf

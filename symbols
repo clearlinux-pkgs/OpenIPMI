@@ -2155,6 +2155,7 @@ libOpenIPMIutils.so.0:ipmi_rwlock_write_unlock
 libOpenIPMIutils.so.0:ipmi_set_device_string
 libOpenIPMIutils.so.0:ipmi_set_device_string2
 libOpenIPMIutils.so.0:ipmi_strdup
+libOpenIPMIutils.so.0:ipmi_string_append
 libOpenIPMIutils.so.0:ipmi_strndup
 libOpenIPMIutils.so.0:ipmi_unlock
 libOpenIPMIutils.so.0:locked_list_add
